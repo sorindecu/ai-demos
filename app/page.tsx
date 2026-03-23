@@ -25,6 +25,18 @@ const demos = [
     href: "/demo/tax-filing",
     icon: "📄",
   },
+  {
+    id: "dashboard",
+    label: "Demo 3",
+    title: "Executive Dashboard",
+    subtitle: "All businesses at a glance",
+    description:
+      "One unified view across accounting, senior living, and real estate. Track revenue, occupancy, alerts, and key metrics — no more switching between spreadsheets.",
+    steps: ["Aggregated financials", "Per-business KPIs", "Real-time alerts", "Revenue breakdown", "AI insights (coming soon)"],
+    color: "slate",
+    href: "/demo/dashboard",
+    icon: "📈",
+  },
 ];
 
 const colorMap: Record<string, { badge: string; border: string; btn: string; dot: string; tag: string }> = {
@@ -42,6 +54,13 @@ const colorMap: Record<string, { badge: string; border: string; btn: string; dot
     dot: "bg-violet-500",
     tag: "bg-violet-50 text-violet-700",
   },
+  slate: {
+    badge: "bg-gray-100 text-gray-700",
+    border: "border-gray-200 hover:border-gray-400",
+    btn: "bg-gray-800 hover:bg-gray-900",
+    dot: "bg-gray-600",
+    tag: "bg-gray-50 text-gray-700",
+  },
 };
 
 export default function HomePage() {
@@ -53,8 +72,8 @@ export default function HomePage() {
           AI Business Automation
         </h1>
         <p className="text-lg text-gray-500 max-w-2xl mx-auto">
-          Two live demos showing how AI eliminates manual data entry across your
-          accounting firm and senior living facilities.
+          Live demos showing how AI eliminates manual work across your
+          accounting firm, senior living facilities, and real estate portfolio.
         </p>
       </div>
 
@@ -63,7 +82,7 @@ export default function HomePage() {
         {[
           { label: "Hours saved per week", value: "40+" },
           { label: "Manual re-entry eliminated", value: "100%" },
-          { label: "Demos ready for April 24", value: "2" },
+          { label: "Demos ready for April 24", value: "3" },
         ].map((stat) => (
           <div key={stat.label} className="text-center">
             <div className="text-3xl font-bold text-blue-600">{stat.value}</div>
@@ -73,7 +92,7 @@ export default function HomePage() {
       </div>
 
       {/* Demo cards */}
-      <div className="grid md:grid-cols-2 gap-6">
+      <div className="grid md:grid-cols-3 gap-6">
         {demos.map((demo) => {
           const c = colorMap[demo.color];
           return (
